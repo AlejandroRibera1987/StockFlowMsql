@@ -25,7 +25,7 @@ h3 {
 }
 
 #container {
-    background-image: url(../img/3d-data-technology-background-with-flowing-waves.jpg);
+    background-image: url(../img/beautiful-girl-with-long-hair-garage-repairing-motorcycle.jpg);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -40,21 +40,21 @@ h3 {
 }
 
 #login {
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 #login h1 {
     color: #fff;
     font-size: 80px;
     margin-left: 15px;
-    color: aqua;
+    color: #01c4a6c3;
     font-family: serif;
+    letter-spacing: 8px;
 }
 
 #container form {
     width: 400px;
-    background: #ccc;
-    opacity: 100%;
+    background: hsl(0, 0%, 80%, 35%);
     padding: 10px;
     border-radius: 10px;
     box-shadow: #ccc;
@@ -69,6 +69,7 @@ h3 {
     border-radius: 5px;
     border: 1px solid #ccc;
     text-align: center;
+    overflow: hidden;
 }
 
 #container form input[type="submit"]{

@@ -55,7 +55,7 @@ header{
 .header{
 	color: #FFF;
 	background: #0a4661;
-	height: 35px;
+	height: 40px;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -98,6 +98,13 @@ header{
     display: flex;
     margin-left: 30px;
 }
+
+nav {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	background: #058167;
+}
 nav ul{
 	background: #058167;
 	/*background: #05817d;*/
@@ -123,6 +130,7 @@ nav a{
 	letter-spacing: 2px;
 	transition: background .5s;
 	border-right: 1px solid #319B8F;
+	border-left: 1px solid #319B8F;
 }
 nav .principal > a{
     background: url(../images/arrow_bottom.png) no-repeat;
@@ -323,6 +331,8 @@ table td {
 }
 
 /* PAginador */
+
+
 
 .paginador ul {
 	padding: 15px;

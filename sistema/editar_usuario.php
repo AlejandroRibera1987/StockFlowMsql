@@ -49,13 +49,15 @@ include "../conexion.php";
 
                 if($sql_update)
                 {
-                    $alert ='<p class="msg_save">Usuario Actualizado Correctamente.</p>';
+                    echo "<script>alert('Se Actualizo Sactifactoriamente.');</script>";
+                    
                 }else{
                     $alert ='<p class="msg_error">Error al Actualizar Usuario.</p>';
                 }
+                
             }
         }
-        mysqli_close($conection);
+       // mysqli_close($conection);
     }
 
     //Mostrar Datos
