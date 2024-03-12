@@ -5,7 +5,7 @@
 					if($_SESSION['rol'] == 1){
 				?>
 				<li class="principal">
-					<a href="#">Usuarios</a>
+					<a href="lista_usuarios.php">Usuarios</a>
 					<ul>
 						<li><a href="registro_usuario.php">Nuevo Usuario</a></li>
 						<li><a href="lista_usuarios.php">Lista de Usuarios</a></li>

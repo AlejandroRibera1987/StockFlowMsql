@@ -49,7 +49,7 @@ include "../conexion.php";
 
                 if($sql_update)
                 {
-                    echo "<script>alert('Se Actualizo Sactifactoriamente.');</script>";
+                    $alert ='<p class="msg_save">Se actualizo Correctamente el usuario.</p>';
                     
                 }else{
                     $alert ='<p class="msg_error">Error al Actualizar Usuario.</p>';

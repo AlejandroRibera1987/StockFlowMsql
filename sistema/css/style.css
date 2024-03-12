@@ -6,7 +6,11 @@
 	box-sizing: border-box;
 }
 body{
-	background: #ededed;
+	background-image: url(../../img/beautiful-girl-with-long-hair-garage-repairing-motorcycle.jpg);
+	background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'arial';
@@ -54,7 +58,7 @@ header{
 }
 .header{
 	color: #FFF;
-	background: #0a4661;
+	background: #000;
 	height: 40px;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -65,6 +69,12 @@ header{
 	align-items: center;
 	padding: 10px;
 }
+
+.header h1 {
+	font-family: sans-serif;
+	letter-spacing: 9px;
+}
+
 .optionsBar{
     display: -webkit-flex;
     display: -moz-flex;
@@ -103,10 +113,10 @@ nav {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	background: #058167;
+	background: hsla(180, 3%, 31%, 0.381);
 }
 nav ul{
-	background: #058167;
+	/*background: #058167;*/
 	/*background: #05817d;*/
 	list-style: none;
 	display: -webkit-flex;
@@ -122,30 +132,31 @@ nav ul > li a{
 }
 nav a{
 	color: #FFF;
+	font-weight: bold;
 	display: block;
 	font-size: 10pt;
-	font-family: 'GothamBook';
+	font-family: sans-serif;
 	padding: 15px 30px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	transition: background .5s;
-	border-right: 1px solid #319B8F;
-	border-left: 1px solid #319B8F;
+	/*border-right: 1px solid #fff;
+	border-left: 1px solid #fff;*/
 }
-nav .principal > a{
+/*nav .principal > a{
     background: url(../images/arrow_bottom.png) no-repeat;
     background-position-x: 0%;
     background-position-y: 0%;
     background-size: auto auto;
     background-position: 94% center;
     background-size: 10px;
-}
+}*/
 nav ul li:hover ul{
 	display: block;
 }
 nav li ul{
 	/*background: #177470;*/
-	background: #2d9872;
+	/*background: #2d9872;*/
 	display: none;
 	flex-direction: column;
 	position: absolute;
@@ -156,10 +167,11 @@ nav li ul a{
 	position: relative;
 	padding: 10px 30px;
 	border-right: initial;
+	background: #252222;
 }
 nav li ul a:hover{
-	/*background: #2c9595;*/
-	background: #147556;
+	/*	background: #2c9595;*/
+	background: #ccc;
 }
 nav li ul li:last-child{
 	border-radius: 0 0 10px 10px;
@@ -175,6 +187,7 @@ nav li ul li:last-child{
 	margin: auto;
 }
 
+
 .form_register h1 {
 	color: #3c93b0;
 }
@@ -188,17 +201,20 @@ hr {
 }
 
 form {
-	background: #fff;
+	background: hsla(0, 0%, 40%, 0.475);
 	margin: auto;
 	padding: 20px 50px;
-	border: 1px solid #d1d1d1;
+	border-top: :
+	border-radius: 40px;
 }
 
 label {
 	display: block;
 	font-size: 12pt;
-	font-family: 'GothamBook';
+	font-family: sans-serif;
 	margin: 15px auto 5px auto;
+	color: #fff;
+	text-align: ;
 }
 
 input, select {
@@ -215,14 +231,20 @@ input, select {
 }
 
 .btn_save {
-	font-size: 12pt;
-	background: #12a4c6;
+	font-size: 15pt;
+	background: #0fb9b1;
 	padding: 10px;
 	color: #fff;
 	letter-spacing: 1px;
 	border: 0;
+	border-radius: 30px;
 	cursor: pointer;
 	margin: 15px auto;
+	font-family: sans-serif;
+}
+
+.btn_save:hover {
+	background: #778ca3;
 }
 
 .alert {
@@ -236,7 +258,7 @@ input, select {
 	color: #e65656;
 }
 .msg_save {
-	color: #126e00;
+	color: #000;
 }
 .alert p {
 	padding: 10px;
@@ -248,6 +270,8 @@ input, select {
 #container h1 {
 	font-size: 35px;
 	display: inline-block;
+	color: #fff;
+	font-family: sans-serif;
 }
 
 .btn_new {
@@ -265,21 +289,26 @@ table {
 	font-family: serif;
 	width: 100%;
 	text-align: left;
+	background: #fff;
+	opacity: 80%;
 }
 
 table th {
-	
 	padding: 10px;
-	background: #3d7ba8;
+	background: hsl(222, 36%, 53%);
 	color: #fff;
+	letter-spacing: 2px;
 }
 
 table tr:nth-child(odd) {
-	background: #fff;
+	background: #ccc;
 }
 
 table td {
-	padding: 10px;
+	padding: 10px;	
+	color: #000;
+	font-weight: bold;
+	letter-spacing: 1px;
 }
 
 .link_edit img{
@@ -333,11 +362,10 @@ table td {
 /* PAginador */
 
 
-
 .paginador ul {
 	padding: 15px;
 	list-style: none;
-	background: #fff;
+	background: initial;
 	margin-top: 15px;
 	display: flex;
 	display: -webkit-flex;
@@ -345,6 +373,10 @@ table td {
 	display: -ms-flex;
 	display: -o-flex;
 	justify-content: flex-end;
+}
+
+.paginador li {
+	background: #fffS;
 }
 
 .paginador a, .pageSelected {
@@ -377,6 +409,7 @@ table td {
 	display: -o-flex;
 	float: right;
 	background: initial;
+	border: 1px solid #000;
 	padding: 10px;
 	border-radius: 10px;
 }

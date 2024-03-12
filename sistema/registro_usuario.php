@@ -70,14 +70,19 @@ include "../conexion.php";
 
             <form action="" method="post">
                 <label for="nombre">Nombre</label>
+                <hr>
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
                 <label for="correo">Correo Electronico</label>
+                <hr>
                 <input type="email" name="correo" id="correo" placeholder="Correo Electronico">
                 <label for="usuario">Usuario</label>
+                <hr>
                 <input type="text" name="usuario" id="usuario" placeholder="Usuario">
                 <label for="clave">Clave</label>
+                <hr>
                 <input type="password" name="clave" id="clave" placeholder="Clave de Acceso">
                 <label for="rol">Tipo Usuario</label>
+                <hr>
                 <?php
                     $query_rol = mysqli_query($conection,"SELECT * FROM rol");
                     mysqli_close($conection);

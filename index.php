@@ -56,18 +56,24 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Login | StockFlow</title>
+    <title>StockFlow</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <section id="container">
       <div id="login">
-          <h1>StockFox</h1>
+          <h1>Login</h1>
           <form class="" action="" method="post">
-            <h3>Iniciar Sesión</h3>
-            <img src="img/Login.png" alt="Login">
-            <input type="text" name="usuario" placeholder="Usuario">
-            <input type="password" name="clave" placeholder="Contraseña">
+            <!--<h3>Iniciar Sesión</h3>-->
+            <!--<img src="img/Login.png" alt="Login">-->
+            <div class="campos">
+              <input type="text" name="usuario" placeholder="Usuario">          
+              <input type="password" name="clave" placeholder="Contraseña">
+            </div>
+            <div class="recupero">
+              <p>Olvidaste tu Usuario</p>
+              <p>Olvidaste tu Contraseña</p>
+            </div>
             <div class="alert"><?php echo isset($alert) ? $alert: ' '; ?></div>
             <input type="submit" value="INGRESAR">
           </form> 
