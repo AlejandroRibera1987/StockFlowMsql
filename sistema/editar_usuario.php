@@ -49,8 +49,7 @@ include "../conexion.php";
 
                 if($sql_update)
                 {
-                    $alert ='<p class="msg_save">Se actualizo Correctamente el usuario.</p>';
-                    
+                    $alert ='<p class="msg_save">Exito al Actualizar Usuario.</p>';                 
                 }else{
                     $alert ='<p class="msg_error">Error al Actualizar Usuario.</p>';
                 }
