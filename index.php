@@ -49,15 +49,14 @@
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>StockFlow</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="path/to/sweetalert2.min.css">
+    <script src="sistema/js/olvido_usuario.js"></script>
   </head>
   <body>
     <section id="container">
@@ -71,13 +70,14 @@
               <input type="password" name="clave" placeholder="Contraseña">
             </div>
             <div class="recupero">
-              <p>Olvidaste tu Usuario</p>
-              <p>Olvidaste tu Contraseña</p>
+              <p><a href="#" id="miEnlace">Olvidaste tu Usuario</a></p>
+              <p><a href="#">Olvidaste tu Contraseña</a></p>
             </div>
             <div class="alert"><?php echo isset($alert) ? $alert: ' '; ?></div>
             <input type="submit" value="INGRESAR">
           </form> 
         </div>   
     </section>
+    <script src="path/to/sweetalert2.min.js"></script>
   </body>
 </html>

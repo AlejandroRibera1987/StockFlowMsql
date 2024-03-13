@@ -81,12 +81,12 @@ include "../conexion.php";
                     <td><?php echo $data["usuario"];?></td>
                     <td><?php echo $data["rol"];?></td>
                     <td>
-                        <a class="link_edit" href="editar_usuario.php?id=<?php echo $data["idusuario"];?>"><img src="img/editar.png" alt=""></a>
+                        <a class="link_edit" href="editar_usuario.php?id=<?php echo $data["idusuario"];?>"><img src="img/editar1.png" alt=""></a>
                         <?php 
                             if($data["idusuario"] != 1)
                             {
                         ?>
-                        <a class="link_delete" href="eliminar_confirmar_usuario.php?id=<?php echo $data["idusuario"];?>"><img src="img/eliminar.png" alt="eliminar"></a>
+                        <a class="link_delete" href="eliminar_confirmar_usuario.php?id=<?php echo $data["idusuario"];?>"><img src="img/basura.png" alt="eliminar"></a>
                         <?php 
                             } 
                         ?>

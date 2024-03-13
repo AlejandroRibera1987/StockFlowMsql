@@ -52,6 +52,11 @@ span {
     font-size: 14px;
     line-height: 20px;
 }
+
+#hora_actual {
+	margin-left: 30px;
+}
+
 header{
 	position: fixed;
 	width: 100%;
@@ -249,16 +254,18 @@ input, select {
 
 .alert {
 	width: 100%;
-	background: #66e07d66;
+	background: #007500d6;
 	border-radius: 6px;
 	margin: 20px auto;
 }
 
 .msg_error {
 	color: #e65656;
+	text-align: center;
 }
 .msg_save {
 	color: #000;
+	text-align: center;
 }
 .alert p {
 	padding: 10px;
@@ -278,6 +285,7 @@ input, select {
 	display: inline-block;
 	background: #239baa;
 	color: #fff;
+	font-family: sans-serif;
 	padding: 5px 25px;
 	border-radius: 5px;
 	margin: 20px;
@@ -286,7 +294,7 @@ input, select {
 table {
 	border-collapse: collapse;
 	font-size: 12pt;
-	font-family: serif;
+	font-family: sans-serif;
 	width: 100%;
 	text-align: left;
 	background: #fff;
@@ -327,29 +335,35 @@ table td {
 }
 
 .data_delete h2 {
-	font-size: 12pt;
+	font-size: 15pt;
 	margin: 10px;
+	color: #fff;
 }
 
 .data_delete p {
 	margin-bottom: 10px;
+	color: #fff;
 }
 
 .data_delete span {
 	font-weight: bold;
-	color: #4f72d4;
+	color: #0044ff;
 	font-size: 12pt;
 }
 
 .btn_cancel, .btn_ok {
 	width: 125px;
-	background: #478ba2;
+	background: #0fb9b1;
 	color: #fff;
 	display: inline-block;
 	padding: 5px;
 	border-radius: 5px;
 	cursor: pointer;
 	margin: 15px;
+}
+
+.btn_cancel:hover, .btn_ok:hover {
+	background: #778ca3;
 }
 
 .data_delete form {
@@ -422,3 +436,30 @@ table td {
 	cursor: pointer;
 	margin-left: 10px;
 }
+
+/*Dashboard*/
+
+.dashboard h2, p{
+	color: #fff;
+}
+
+
+.dashboard {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.dashboard_1 {
+	width: 50%;
+	background: #ccc;
+	align-items: center;
+}
+
+.dashboard_1 .usuarios {
+	width: 50%;
+	align-items: center;
+	padding: 20px;
+	margin: 30px;
+}
+
