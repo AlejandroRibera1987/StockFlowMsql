@@ -113,6 +113,7 @@
     font-family: sans-serif;
     letter-spacing: 5px;
     margin-bottom: 25px;
+    text-shadow: 2px 8px 4px rgba(0, 0, 0, 0.5);
 }
 
 #container form input {
@@ -134,10 +135,12 @@
 .recupero {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .recupero p {
-    margin: 0px 20px;
+    margin: 0px 20px 0px 20px;
+    font-size: 14px;
 }
 
 .recupero a {
@@ -154,7 +157,7 @@
 }
 
 #container form input[type="submit"]{
-    background: #0fb9b1;
+    background: hsl(177, 45%, 39%);
     padding: 10px;
     color: #fff;
     letter-spacing: 1px;
@@ -162,11 +165,15 @@
     cursor: pointer;
     border-radius: 50px;
     opacity: 80%;
+    font-size: 19px;
     font-family: sans-serif;
+    width: 50%;
+    box-shadow: 2px 3px 4px #000;
 }
 
 #container form input[type="submit"]:hover {
     background: #778ca3;
+    box-shadow: 2px 3px 4px #57606f;
 }
 
 
