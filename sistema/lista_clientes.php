@@ -1,10 +1,5 @@
 <?php
     session_start();
-    if($_SESSION['rol'] != 1)
-    {
-        header("location: ./");
-    }
-
 
 include "../conexion.php";
 
@@ -18,30 +13,31 @@ include "../conexion.php";
 <head>
 	<meta charset="UTF-8">
 	<?php  include "include/scripts.php" ?>
-	<title>StockFlow || Usuarios</title>
+	<title>StockFlow || Clientes</title>
 </head>
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
-		<h1>Lista de Usuarios</h1>
-        <a href="registro_usuario.php" class="btn_new">Crear Usuario</a>
-        <form action="buscar_usuario.php" method="get" class="form_search">
+		<h1>Lista de Clientes</h1>
+        <a href="registro_cliente.php" class="btn_new">Cargar Cliente</a>
+        <form action="buscar_cliente.php" method="get" class="form_search">
             <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
             <input type="submit" value="Buscar" class="btn_search">
         </form>
         <table>
             <tr>
                 <th>ID</th>
+                <th>DNI</th>
                 <th>Nombre</th>
+                <TH>Telefono</TH>
                 <th>Correo</th>
-                <TH>Usuario</TH>
-                <th>Rol</th>
+                <th>Direccion</th>
                 <th>Acciones</th>
             </tr>
         <?php
 
             //Paginador
-            $sql_registe = mysqli_query($conection, "SELECT COUNT(*) as total_registro FROM usuario WHERE estatus = 1;");
+            $sql_registe = mysqli_query($conection, "SELECT COUNT(*) as total_registro FROM cliente WHERE estatus = 1;");
             $result_register = mysqli_fetch_array($sql_registe);
             $total_registro = $result_register['total_registro'];
 
@@ -57,9 +53,7 @@ include "../conexion.php";
             $desde = ($pagina-1) * $por_pagina;
             $total_paginas = ceil($total_registro / $por_pagina);
 
-            $query = mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo, u.usuario, r.rol 
-                                                FROM usuario u  
-                                                INNER JOIN rol r ON u.rol = r.idrol 
+            $query = mysqli_query($conection, "SELECT * FROM cliente  
                                                 WHERE estatus = 1 
                                                 LIMIT $desde,$por_pagina     
                                                 ");
@@ -71,24 +65,29 @@ include "../conexion.php";
             if($result > 0)
             {
                 while ($data = mysqli_fetch_array($query)){
-
+                    if($data['dni'] == 0)
+                    {
+                        $dni = "";
+                    }else{
+                        $dni = $data['dni'];
+                    }
         ?>
 
                 <tr>
-                    <td><?php echo $data["idusuario"];?></td>
+                    <td><?php echo $data["idcliente"];?></td>
+                    <td><?php echo $dni;?></td>
                     <td><?php echo $data["nombre"];?></td>
+                    <td><?php echo $data["telefono"];?></td>
                     <td><?php echo $data["correo"];?></td>
-                    <td><?php echo $data["usuario"];?></td>
-                    <td><?php echo $data["rol"];?></td>
+                    <td><?php echo $data["direccion"];?></td>
                     <td>
-                        <a class="link_edit" href="editar_usuario.php?id=<?php echo $data["idusuario"];?>"><img src="img/editar.png" alt=""></a>
+                        <a class="link_edit" href="editar_cliente.php?id=<?php echo $data["idcliente"];?>"><img src="img/editar.png" alt=""></a>
                         <?php 
-                            if($data["idusuario"] != 1)
-                            {
+                            if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
                         ?>
-                        <a class="link_delete" href="eliminar_confirmar_usuario.php?id=<?php echo $data["idusuario"];?>"><img src="img/eliminar.png" alt="eliminar"></a>
+                        <a class="link_delete" href="eliminar_confirmar_cliente.php?id=<?php echo $data["idcliente"];?>"><img src="img/eliminar.png" alt="eliminar"></a>
                         <?php 
-                            } 
+                            }
                         ?>
                     </td>
                 </tr>

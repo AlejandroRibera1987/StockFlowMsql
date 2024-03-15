@@ -21,7 +21,7 @@
 
                 $result = 0;
 
-                if(is_numeric($dni))
+                if(is_numeric($dni) and $dni != 0)
                 {
                     $query = mysqli_query($conection, "SELECT * FROM cliente WHERE dni = '$dni'");
                     $result = mysqli_fetch_array($query);

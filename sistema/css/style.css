@@ -209,7 +209,6 @@ form {
 	background: hsla(0, 0%, 40%, 0.475);
 	margin: auto;
 	padding: 20px 50px;
-	border-top: :
 	border-radius: 40px;
 }
 
@@ -219,7 +218,6 @@ label {
 	font-family: sans-serif;
 	margin: 15px auto 5px auto;
 	color: #fff;
-	text-align: ;
 }
 
 input, select {
@@ -390,7 +388,7 @@ table td {
 }
 
 .paginador li {
-	background: #fffS;
+	background: #fff;
 }
 
 .paginador a, .pageSelected {
@@ -462,4 +460,6 @@ table td {
 	padding: 20px;
 	margin: 30px;
 }
+
+
 
