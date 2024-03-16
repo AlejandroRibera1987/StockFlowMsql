@@ -9,7 +9,7 @@
 
         if(empty($_POST['nombre']) || empty($_POST['correo']) || empty($_POST['telefono']))
         {
-            $alert ='<p class="msg_error">Nombre, Telefono y Direccion son Obligatorios.</p>';
+            $alert ='<p class="msg_error">Nombre, Telefono y Correo son Obligatorios.</p>';
         }else{
             
                 $dni = $_POST['dni'];
@@ -20,6 +20,8 @@
                 $usuario_id = $_SESSION['idUser'];
 
                 $result = 0;
+
+                $dni = !empty($_POST['dni']) ? $_POST['dni'] : 0;
 
                 if(is_numeric($dni) and $dni != 0)
                 {
@@ -71,7 +73,7 @@
 
             <form action="" method="post">
                 <label for="dni">DNI</label>
-                <input type="number" name="dni" id="dni" placeholder="Numero de DNI">
+                <input type="text" name="dni" id="dni" placeholder="Numero de DNI">
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
                 <label for="correo">Correo Electronico</label>

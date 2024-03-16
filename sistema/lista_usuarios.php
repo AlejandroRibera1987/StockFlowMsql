@@ -105,8 +105,8 @@ include "../conexion.php";
                     if($pagina != 1)
                     {
                 ?>
-                <li><a href="?pagina=<?php echo 1; ?>">|<</a></li>
-                <li><a href="?pagina=<?php echo $pagina - 1; ?>"><<<</a></li>
+                <li><a href="?pagina=<?php echo 1; ?>"><i class="fas fa-step-backward"></i></a></li>
+                <li><a href="?pagina=<?php echo $pagina - 1; ?>"><i class="fas fa-caret-left"></i></a></li>
 
                 <?php
                     }
@@ -123,8 +123,8 @@ include "../conexion.php";
                     if($pagina != $total_paginas)
                     {
                 ?>
-                <li><a href="?pagina=<?php echo $pagina + 1; ?>">>>></a></li>
-                <li><a href="?pagina=<?php echo $total_paginas; ?>">>|</a></li>
+                <li><a href="?pagina=<?php echo $pagina + 1; ?>"><i class="fas fa-caret-right"></i></a></li>
+                <li><a href="?pagina=<?php echo $total_paginas; ?>"><i class="fas fa-step-forward"></i></a></li>
                <?php
                     }
                 ?> 

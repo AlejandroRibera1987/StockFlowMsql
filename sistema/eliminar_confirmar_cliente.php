@@ -9,21 +9,21 @@
 
     if(!empty($_POST))
     {
-        if($_POST['idusuario'] == 1){
-            header('location: lista_usuarios.php');
+        if(empty($_POST['idcliente']))
+        {
+            header('location: lista_clientes.php');
             mysqli_close($conection);
-            exit;
         }
-        
-        $idusuario = $_POST['idusuario'];
+  
+        $idcliente = $_POST['idcliente'];
 
         // $query_delete = mysqli_query($conection, "DELETE FROM usuario WHERE idusuario = $idusuario");
 
-        $query_delete = mysqli_query($conection, "UPDATE usuario SET estatus = 0 WHERE idusuario = $idusuario");
+        $query_delete = mysqli_query($conection, "UPDATE cliente SET estatus = 0 WHERE idcliente = $idcliente");
         mysqli_close($conection);
         if($query_delete)
         {
-            header('location: lista_usuarios.php');
+            header('location: lista_clientes.php');
         }else{
             echo "Error al Eliminar";
         }
@@ -32,22 +32,18 @@
 
 
 
-    if(empty($_REQUEST['id']) || $_REQUEST['id'] == 1)
+    if(empty($_REQUEST['id']))
     {
-        header('location: lista_usuarios.php');
+        header('location: lista_clientes.php');
         mysqli_close($conection);
     }else{
 
         
 
-        $idusuario = $_REQUEST['id'];
+        $idcliente = $_REQUEST['id'];
 
-        $query = mysqli_query($conection, "SELECT u.nombre, u.usuario, r.rol
-                                            FROM usuario u
-                                            INNER JOIN
-                                            rol r
-                                            ON u.rol = r.idrol
-                                            WHERE u.idusuario = $idusuario ");
+        $query = mysqli_query($conection, "SELECT * FROM cliente
+                                            WHERE idcliente = $idcliente");
 
         mysqli_close($conection);
         $result = mysqli_num_rows($query);
@@ -56,12 +52,14 @@
         {
             while($data = mysqli_fetch_array($query)) 
             {
+                $dni = $data['dni'];
                 $nombre = $data['nombre'];
-                $usuario = $data['usuario'];
-                $rol = $data['rol'];
+                $telefono = $data['telefono'];
+                $correo = $data['correo'];
+                $direccion = $data['direccion'];
             }
         }else{
-            header('location: lista_usuarios.php');
+            header('location: lista_clientes.php');
         }
     }
 
@@ -77,20 +75,22 @@
 <head>
 	<meta charset="UTF-8">
 	<?php  include "include/scripts.php" ?>
-	<title>StockFlow || Eliminar Usuario</title>
+	<title>StockFlow || Eliminar Cliente</title>
 </head>
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
 		<div class="data_delete">
-            <h2>Está Seguro de Eliminar el Usuario?</h2>
+            <h2>Está Seguro de Eliminar el Cliente?</h2>
+            <p>DNI: <span><?php echo $dni; ?></span></p>
             <p>Nombre: <span><?php echo $nombre; ?></span></p>
-            <p>Usuario: <span><?php echo $usuario; ?></span></p>
-            <p>Tipo de Usuario: <span><?php echo $rol; ?></span></p>
+            <p>Telefono: <span><?php echo $telefono; ?></span></p>
+            <p>Email: <span><?php echo $correo; ?></span></p>
+            <p>Direccion: <span><?php echo $direccion; ?></span></p>
 
             <form action="" method="post">
-                <input type="hidden" name="idusuario" value="<?php echo $idusuario; ?> ">
-                <a href="lista_usuarios.php" class="btn_cancel">Cancelar</a>
+                <input type="hidden" name="idcliente" value="<?php echo $idcliente; ?> ">
+                <a href="lista_clientes.php" class="btn_cancel">Cancelar</a>
                 <input type="submit" value="Aceptar" class="btn_ok">
             </form>
         </div>

@@ -24,7 +24,7 @@ include "../conexion.php";
             $rol = $_POST['rol'];
 
             $query = mysqli_query($conection, "SELECT * FROM usuario WHERE usuario = '$user' OR correo = '$email'");
-            mysqli_close($conection);
+            
             $result = mysqli_fetch_array($query);
 
             if($result > 0)
@@ -62,7 +62,7 @@ include "../conexion.php";
 	<?php include "include/header.php" ?>
 	<section id="container">
 		<div class="form_register">
-            <h1>Registro Usuario</h1>
+            <h1><i class="fas fa-user-plus"></i> Registro Usuario</h1>
             <hr>
             <div class="alert">
                 <?php echo isset($alert) ? $alert:''; ?>
@@ -103,6 +103,7 @@ include "../conexion.php";
                     
                 </select>
                 <input type="submit" value="Crear Usuario" class="btn_save">
+                
             </form>
         </div>
 	</section>
