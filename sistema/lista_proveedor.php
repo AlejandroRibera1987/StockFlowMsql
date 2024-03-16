@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    if($_SESSION['rol'] != 1 and $_SESSION['rol'] != 2)
+    {
+        header("location: ./");
+    }
+
 include "../conexion.php";
 
 ?>
@@ -18,26 +23,27 @@ include "../conexion.php";
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
-		<h1>Lista de Clientes</h1>
-        <a href="registro_cliente.php" class="btn_new">Cargar Cliente</a>
-        <form action="buscar_cliente.php" method="get" class="form_search">
+		<h1><i class="far fa-building"></i> Lista de Proveedores</h1>
+        <a href="registro_proveedor.php" class="btn_new"><i class="fas fa-plus"></i> Cargar Proveedor</a>
+        <form action="buscar_proveedor.php" method="get" class="form_search">
             <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
             <input type="submit" value="Buscar" class="btn_search">
         </form>
         <table>
             <tr>
                 <th>ID</th>
-                <th>DNI</th>
-                <th>Nombre</th>
+                <th>Proveedor</th>
+                <th>Contacto</th>
                 <TH>Telefono</TH>
                 <th>Correo</th>
                 <th>Direccion</th>
+                <th>Fecha</th>
                 <th>Acciones</th>
             </tr>
         <?php
 
             //Paginador
-            $sql_registe = mysqli_query($conection, "SELECT COUNT(*) as total_registro FROM cliente WHERE estatus = 1;");
+            $sql_registe = mysqli_query($conection, "SELECT COUNT(*) as total_registro FROM proveedor WHERE estatus = 1;");
             $result_register = mysqli_fetch_array($sql_registe);
             $total_registro = $result_register['total_registro'];
 
@@ -53,7 +59,7 @@ include "../conexion.php";
             $desde = ($pagina-1) * $por_pagina;
             $total_paginas = ceil($total_registro / $por_pagina);
 
-            $query = mysqli_query($conection, "SELECT * FROM cliente  
+            $query = mysqli_query($conection, "SELECT * FROM proveedor  
                                                 WHERE estatus = 1 
                                                 LIMIT $desde,$por_pagina     
                                                 ");
@@ -65,30 +71,24 @@ include "../conexion.php";
             if($result > 0)
             {
                 while ($data = mysqli_fetch_array($query)){
-                    if($data['dni'] == 0)
-                    {
-                        $dni = "-";
-                    }else{
-                        $dni = $data['dni'];
-                    }
+                    $formato = 'Y-m-d H:i:s';
+                    $fecha = DateTime::createFromFormat($formato,$data["date_add"]);
+                    
         ?>
 
                 <tr>
-                    <td><?php echo $data["idcliente"];?></td>
-                    <td><?php echo $dni;?></td>
-                    <td><?php echo $data["nombre"];?></td>
+                    <td><?php echo $data["codproveedor"];?></td>
+                    <td><?php echo $data['proveedor'];?></td>
+                    <td><?php echo $data["contacto"];?></td>
                     <td><?php echo $data["telefono"];?></td>
                     <td><?php echo $data["correo"];?></td>
                     <td><?php echo $data["direccion"];?></td>
+                    <td><?php echo $fecha->format('d/m/y');?></td>
                     <td>
-                        <a class="link_edit" href="editar_cliente.php?id=<?php echo $data["idcliente"];?>"><img src="img/editar.png" alt=""></a>
-                        <?php 
-                            if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
-                        ?>
-                        <a class="link_delete" href="eliminar_confirmar_cliente.php?id=<?php echo $data["idcliente"];?>"><img src="img/eliminar.png" alt="eliminar"></a>
-                        <?php 
-                            }
-                        ?>
+                        <a class="link_edit" href="editar_proveedor.php?id=<?php echo $data["codproveedor"];?>"><img src="img/editar.png" alt=""></a>
+                        
+                        <a class="link_delete" href="eliminar_confirmar_proveedor.php?id=<?php echo $data["codproveedor"];?>"><img src="img/eliminar.png" alt="eliminar"></a>
+
                     </td>
                 </tr>
 

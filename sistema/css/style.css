@@ -331,6 +331,7 @@ table td {
 
 .data_delete {
 	text-align: center;
+	margin-top: 40px;
 }
 
 .data_delete h2 {
@@ -361,6 +362,10 @@ table td {
 	margin: 15px;
 }
 
+.btn_ok {
+	background: #e66062;
+}
+
 .btn_cancel:hover, .btn_ok:hover {
 	background: #778ca3;
 }
@@ -389,12 +394,12 @@ table td {
 }
 
 .paginador li {
-	background: #000;
+	background: #ccc;
 }
 
 .paginador a, .pageSelected {
 	color: #428bca;
-	border: 1px solid #ddd;
+	border: 1px solid #ccc;
 	padding: 5px;
 	display: inline-block;
 	font-size: 14px;
@@ -407,9 +412,9 @@ table td {
 }
 
 .pageSelected {
-	color: #fff;
-	background: #428bca;
-	border: 1px solid #428bca;
+	color: blue;
+	background: #277bc5;
+	border: 1px solid #000;
 }
 
 /*Buscador*/

@@ -21,15 +21,18 @@
 						<li><a href="lista_clientes.php">Lista de Clientes</a></li>
 					</ul>
 				</li>
+				<?php
+					if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
+				?>
 				<li class="principal">
-					<a href="#">Proveedores</a>
+					<a href="lista_proveedor.php"><i class="far fa-building"></i> Proveedores</a>
 					<ul>
-						<li><a href="#">Nuevo Proveedor</a></li>
-						<li><a href="#">Lista de Proveedores</a></li>
+						<li><a href="registro_proveedor.php"><i class="fas fa-plus"></i> Nuevo Proveedor</a></li>
+						<li><a href="lista_proveedor.php"><i class="far fa-building"></i> Lista de Proveedores</a></li>
 					</ul>
-				</li>
+				</li><?php } ?>
 				<li class="principal">
-					<a href="#">Productos</a>
+					<a href="#"><i class="fas fa-solid fa-box-open"></i> Productos</a>
 					<ul>
 						<li><a href="#">Nuevo Producto</a></li>
 						<li><a href="#">Lista de Productos</a></li>

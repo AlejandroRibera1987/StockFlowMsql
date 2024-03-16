@@ -83,6 +83,8 @@
 	<?php include "include/header.php" ?>
 	<section id="container">
 		<div class="data_delete">
+            <i class="fas fa-user-times fa-7x" style="color: #e66062; margin-left: 50px;"></i>
+            <br><br>
             <h2>Está Seguro de Eliminar el Usuario?</h2>
             <p>Nombre: <span><?php echo $nombre; ?></span></p>
             <p>Usuario: <span><?php echo $usuario; ?></span></p>
