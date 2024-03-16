@@ -49,7 +49,7 @@ include "../conexion.php";
     $idproveedor = $_GET['id'];
 
     $sql = mysqli_query($conection, "SELECT * FROM proveedor
-                                        WHERE codproveedor = $idproveedor");
+                                        WHERE codproveedor = $idproveedor and estatus = 1");
 
     mysqli_close($conection);
     $result_sql = mysqli_num_rows($sql);

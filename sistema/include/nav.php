@@ -34,7 +34,13 @@
 				<li class="principal">
 					<a href="#"><i class="fas fa-solid fa-box-open"></i> Productos</a>
 					<ul>
-						<li><a href="#">Nuevo Producto</a></li>
+					<?php
+						if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){
+					?>
+						<li><a href="registro_producto.php"><i class="fas fa-plus"></i> Nuevo Producto</a></li>
+					<?php
+						}
+					?>
 						<li><a href="#">Lista de Productos</a></li>
 					</ul>
 				</li>
