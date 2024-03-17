@@ -11,30 +11,47 @@
     {
         $alert = '';
 
-        if(empty($_POST['contacto']) || empty($_POST['correo']) || empty($_POST['telefono']) || empty($_POST['proveedor']))
+        if(empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || empty($_POST['cantidad']))
         {
-            $alert ='<p class="msg_error">Nombre, Telefono, Proveedor y Contacto son Obligatorios.</p>';
+            $alert ='<p class="msg_error">Proveedor, Producto, Precio y Cantidad son obligatorios.</p>';
         }else{
             
                 $proveedor = $_POST['proveedor'];
-                $contacto = $_POST['contacto'];
-                $email = $_POST['correo'];
-                $telefono = $_POST['telefono'];
-                $direccion = $_POST['direccion'];
+                $producto = $_POST['producto'];
+                $precio = $_POST['precio'];
+                $cantidad = $_POST['cantidad'];
+                $codbarra = $_POST['codbarra'];
                 $usuario_id = $_SESSION['idUser'];
 
-                $query_insert = mysqli_query($conection, "INSERT INTO proveedor(proveedor,contacto,telefono,correo, direccion, usuario_id)
-                                                            VALUE ('$proveedor','$contacto','$telefono','$email', '$direccion', '$usuario_id')");
+
+              /*   $foto = $_FILES['foto'];
+                $nombre_foto = $foto['name'];
+                $type = $foto['type'];
+                $url_temp = $foto['tmp_name'];
+
+               $imgProducto = 'img_producto.png';
+
+                if($nombre_foto != '')
+                {
+                    $destino = 'img/uploads/';
+                    $img_nombre = 'img_'.md5(date('d-m-Y H:m:s'));
+                    $imgProducto = $img_nombre.'jpg';
+                    $src = $destino.$imgProducto;
+                } */
+
+                $query_insert = mysqli_query($conection, "INSERT INTO producto(proveedor,descripcion,precio,existencia, codbarra, usuario_id)
+                VALUE ('$proveedor','$producto','$precio','$cantidad', '$codbarra', '$usuario_id')");
                     if($query_insert)
                     {
-                        $alert ='<p class="msg_save">Proveedor Creado Correctamente</p>';
+                       /* if($nombre_foto != '')
+                        {
+                            move_uploaded_file($url_temp, $src);
+                        } */
+                        $alert ='<p class="msg_save">Producto Cargado Correctamente</p>';
                     }else{
-                        $alert ='<p class="msg_error">Error al crear el Proveedor</p>';
+                        $alert ='<p class="msg_error">Error al Cargar el Producto</p>';
                     }
-                }
-            
-                mysqli_close($conection);
-            
+                }            
     }
 
 ?>
@@ -63,8 +80,26 @@
 
             <form action="" method="post" enctype="multipart/form-data">
                 <label for="proveedor">Proveedor</label>
+                <?php
+                    $query_proveedor = mysqli_query($conection, "SELECT codproveedor, proveedor FROM proveedor WHERE estatus = 1  ORDER BY proveedor ASC");
+                    $result_proveedor = mysqli_num_rows($query_proveedor);
+                    mysqli_close($conection);
+                ?>
+
+
                 <select name="proveedor" id="proveedor">
-                    <option value="1">Sony</option>
+                    <?php
+                        if($result_proveedor > 0)
+                        {
+                            while($proveedor = mysqli_fetch_array($query_proveedor))
+                            {
+                    ?>
+                        <option value="<?php echo $proveedor['codproveedor']; ?>"><?php echo $proveedor['proveedor']; ?></option>
+                    <?php          
+                            }
+                        }
+                    ?>
+                    
                 </select>                
                 <label for="producto">Producto</label>
                 <input type="text" name="producto" id="producto" placeholder="Nombre del Producto">
@@ -75,7 +110,7 @@
                 <label for="codbarra">Codigo de Barra</label>
                 <input type="text" name="codbarra" id="codbarra" placeholder="Escanee el Codigo de Barra">
                 
-                <div class="photo">
+             <!--   <div class="photo">
                     <label for="foto">Foto</label>
                     <div class="prevPhoto">
                         <span class="delPhoto notBlock">X</span>
@@ -85,7 +120,7 @@
                         <input type="file" name="foto" id="foto">
                     </div>
                     <div id="form_alert"></div>
-                </div>
+                </div> -->
 
 
                 <input type="submit" value="Guardar Producto" class="btn_save">
