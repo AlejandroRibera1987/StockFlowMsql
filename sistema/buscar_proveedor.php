@@ -61,7 +61,8 @@ include "../conexion.php";
                                                                 contacto LIKE '%$busqueda%' OR
                                                                 telefono LIKE '%$busqueda%' OR
                                                                 correo LIKE '%$busqueda%' OR
-                                                                direccion LIKE '%$busqueda%')
+                                                                direccion LIKE '%$busqueda%' OR
+                                                                date_add LIKE '%$busqueda%')
                                                         AND estatus = 1;");
             $result_register = mysqli_fetch_array($sql_registe);
             $total_registro = $result_register['total_registro'];
@@ -84,7 +85,8 @@ include "../conexion.php";
                                                         contacto LIKE '%$busqueda%' OR
                                                         correo LIKE '%$busqueda%' OR
                                                         direccion LIKE '%$busqueda%' OR
-                                                        telefono LIKE '%$busqueda%' )
+                                                        telefono LIKE '%$busqueda%' OR
+                                                        date_add LIKE '%$busqueda%')
                                                 AND estatus = 1 
                                                 LIMIT $desde,$por_pagina     
                                                 ");
