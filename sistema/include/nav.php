@@ -15,10 +15,10 @@
 					}
 				?>
 				<li class="principal">
-					<a href="lista_clientes.php">Clientes</a>
+					<a href="lista_clientes.php"><i class="fas fa-user"></i> Clientes</a>
 					<ul>
-						<li><a href="registro_cliente.php">Nuevo Cliente</a></li>
-						<li><a href="lista_clientes.php">Lista de Clientes</a></li>
+						<li><a href="registro_cliente.php"><i class="fas fa-plus"></i> Nuevo Cliente</a></li>
+						<li><a href="lista_clientes.php"><i class="fas fa-users"></i> Lista de Clientes</a></li>
 					</ul>
 				</li>
 				<?php

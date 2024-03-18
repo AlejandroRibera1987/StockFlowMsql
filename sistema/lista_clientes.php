@@ -18,8 +18,8 @@ include "../conexion.php";
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
-		<h1>Lista de Clientes</h1>
-        <a href="registro_cliente.php" class="btn_new">Cargar Cliente</a>
+		<h1><i class="fas fa-users"></i> Lista de Clientes</h1>
+        <a href="registro_cliente.php" class="btn_new"><i class="fas fa-user-plus"></i> Cargar Cliente</a>
         <form action="buscar_cliente.php" method="get" class="form_search">
             <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
             <input type="submit" value="Buscar" class="btn_search">
