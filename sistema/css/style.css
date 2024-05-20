@@ -443,28 +443,46 @@ table td {
 
 /*Dashboard*/
 
-.dashboard h2, p{
-	color: #fff;
-}
-
-
 .dashboard {
-	width: 100%;
-	display: flex;
-	justify-content: center;
+	width: 90%;
+	height: 600px;
+	margin-top: 30px;
+	background-color: rgba(194, 194, 194, 0.432);
+	border-radius: 15px;
+	box-shadow: #ccc 5px 5px 15px;
+	margin-left: 100px;
 }
 
 .dashboard_1 {
-	width: 50%;
-	background: #ccc;
-	align-items: center;
+	width:50%;
+	display: inline-block;
 }
 
-.dashboard_1 .usuarios {
-	width: 50%;
-	align-items: center;
-	padding: 20px;
-	margin: 30px;
+.usuarios {
+	background-color: green;
+	height: 300px;
+
+}
+
+.clientes {
+	background-color: brown;
+	height: 300px;
+}
+
+.dashboard_2 {
+	width: 49%;
+	background-color: blue;
+	display: inline-block;
+}
+
+.productos {
+	background-color: brown;
+	height: 300px;
+}
+
+.facturacion {
+	background-color: brown;
+	height: 300px;
 }
 
 /*Estilos Foto Producto*/
