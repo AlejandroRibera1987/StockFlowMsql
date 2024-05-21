@@ -18,7 +18,7 @@ include "../conexion.php";
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
-		<h1><i class="fas fa-users"></i> Lista de Clientes</h1>
+		<h2><i class="fas fa-users"></i> Lista de Clientes</h2>
         <a href="registro_cliente.php" class="btn_new"><i class="fas fa-user-plus"></i> Cargar Cliente</a>
         <form action="buscar_cliente.php" method="get" class="form_search">
             <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">

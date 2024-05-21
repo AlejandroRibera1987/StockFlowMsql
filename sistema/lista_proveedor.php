@@ -23,7 +23,7 @@ include "../conexion.php";
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
-		<h1><i class="far fa-building"></i> Lista de Proveedores</h1>
+		<h2><i class="far fa-building"></i> Lista de Proveedores</h2>
         <a href="registro_proveedor.php" class="btn_new"><i class="fas fa-plus"></i> Cargar Proveedor</a>
         <form action="buscar_proveedor.php" method="get" class="form_search">
             <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">

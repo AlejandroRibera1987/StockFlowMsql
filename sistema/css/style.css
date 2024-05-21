@@ -273,7 +273,7 @@ input, select {
 
 /*-Lista Usuario*/
 
-#container h1 {
+#container h2 {
 	font-size: 35px;
 	display: inline-block;
 	color: #fff;
@@ -443,46 +443,73 @@ table td {
 
 /*Dashboard*/
 
+#container .dashboard_titulo {
+	color: #ccc;
+	font-size: 80px;
+	text-align: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	letter-spacing: 14px;
+}
+
+#container .dashboard_subtitulo {
+	color: #ccc;
+	font-size: 50px;
+	text-align: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	width: 100%;
+	letter-spacing: 5px;
+}
+
 .dashboard {
-	width: 90%;
-	height: 600px;
-	margin-top: 30px;
-	background-color: rgba(194, 194, 194, 0.432);
+	width: 60%;
+	margin: 30px auto;
+	background-color: rgba(201, 201, 201, 0.508);
 	border-radius: 15px;
-	box-shadow: #ccc 5px 5px 15px;
-	margin-left: 100px;
+	box-shadow: #7e7e7e 5px 5px 15px;
+	display: flex;
+}
+
+.dashboard span {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 20px;
 }
 
 .dashboard_1 {
-	width:50%;
+	width: 50%;
 	display: inline-block;
 }
 
-.usuarios {
-	background-color: green;
-	height: 300px;
-
+.dashboard h2 a {
+	font-size: 50px;
+	color: white;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	letter-spacing: 2px;
 }
 
-.clientes {
-	background-color: brown;
-	height: 300px;
+.items {
+	height: 33%;
+	text-align: center;
+	padding: 20px 0;
 }
+
+.items_text {
+	font-size: 25px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	line-height: 30px;
+}
+
 
 .dashboard_2 {
 	width: 49%;
-	background-color: blue;
 	display: inline-block;
 }
 
 .productos {
-	background-color: brown;
-	height: 300px;
+	height: 50%;
 }
 
 .facturacion {
-	background-color: brown;
-	height: 300px;
+	height: 50%;
 }
 
 /*Estilos Foto Producto*/

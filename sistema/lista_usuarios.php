@@ -23,7 +23,7 @@ include "../conexion.php";
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
-		<h1><i class="fas fa-users"></i> Lista de Usuarios</h1>
+		<h2><i class="fas fa-users"></i> Lista de Usuarios</h2>
         <a href="registro_usuario.php" class="btn_new"><i class="fas fa-user-plus"></i> Crear Usuario</a>
         <form action="buscar_usuario.php" method="get" class="form_search">
             <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
