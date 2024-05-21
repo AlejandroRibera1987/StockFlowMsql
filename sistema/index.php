@@ -2,9 +2,6 @@
  
  session_start();
 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +13,7 @@
 <body>
 	<?php include "include/header.php" ?>
 	<section id="container">
-		<h1 class="dashboard_titulo">Bienvenide <?php echo $_SESSION['user']?></h1>
+		<h1 class="dashboard_titulo">Bienvenido <?php echo $_SESSION['user']?></h1>
 		<h2 class="dashboard_subtitulo">Dashboard</h2>
 		<div class="dashboard">
 			<div class="dashboard_1">
