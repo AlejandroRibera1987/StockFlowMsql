@@ -4,21 +4,18 @@
 
  include "../conexion.php";
   
- $query_usuarios_activos = mysqli_query($conection, "SELECT * FROM `usuario` WHERE estatus = 1");
+ function contarRegistros($conection, $tabla, $estatus) {
+    $query = mysqli_query($conection, "SELECT * FROM `$tabla` WHERE estatus = $estatus");
+    return mysqli_num_rows($query);
+}
 
- $cant_usuarios_activos = mysqli_num_rows($query_usuarios_activos);
-
- $query_usuarios_inactivos = mysqli_query($conection, "SELECT * FROM `usuario` WHERE estatus = 0");
-
-$cant_usuarios_inactivos = mysqli_num_rows($query_usuarios_inactivos);
-
-$query_cliente_activo = mysqli_query($conection, "SELECT * FROM `cliente` WHERE estatus = 1");
-
-$cant_clientes_activos = mysqli_num_rows($query_cliente_activo);
-
-$query_cliente_inactivos = mysqli_query($conection, "SELECT * FROM `cliente` WHERE estatus = 0");
-
-$cant_clientes_inactivos = mysqli_num_rows($query_cliente_inactivos);
+$cant_usuarios_activos = contarRegistros($conection, 'usuario', 1);
+$cant_usuarios_inactivos = contarRegistros($conection, 'usuario', 0);
+$cant_clientes_activos = contarRegistros($conection, 'cliente', 1);
+$cant_clientes_inactivos = contarRegistros($conection, 'cliente', 0);
+$cant_proveedores_activos = contarRegistros($conection, 'proveedor', 1);
+$cant_proveedores_inactivos = contarRegistros($conection, 'proveedor', 0);
+$cant_productos_activos = contarRegistros($conection, 'producto', 1);
 
 ?>
 <!DOCTYPE html>
@@ -40,6 +37,7 @@ $cant_clientes_inactivos = mysqli_num_rows($query_cliente_inactivos);
 
 					<p class="items_text">activos: <span><?php echo $cant_usuarios_activos; ?></span></p>
 					<p class="items_text">Inactivos: <span><?php echo $cant_usuarios_inactivos; ?></span></p>
+					<p class="items_text">Total: <span><?php echo ($cant_usuarios_inactivos + $cant_usuarios_activos); ?></span></p>
 				</div>
 
 				<div class="clientes items ">
@@ -48,15 +46,15 @@ $cant_clientes_inactivos = mysqli_num_rows($query_cliente_inactivos);
 					<p class="items_text">Inactivos: <span><?php echo $cant_clientes_inactivos; ?></span></p>
 				</div>
 				<div class="proveedores items">
-					<h2><a href="#">proveedores</a></h2>
-					<p class="items_text">Activos: <span>12</span></p>
-					<p class="items_text">Inactivos: <span>1</span></p>
+					<h2><a href="#">Proveedores</a></h2>
+					<p class="items_text">Activos: <span><?php echo $cant_proveedores_activos; ?></span></p>
+					<p class="items_text">Inactivos: <span><?php echo $cant_proveedores_inactivos; ?></span></p>
 				</div>
 			</div>
 			<div class="dashboard_2">
 				<div class="productos items">
 					<h2><a href="#">Productos</a></h2>
-					<p class="items_text">Productos Activos: <span>100</span></p>
+					<p class="items_text">Productos Activos: <span><?php echo $cant_productos_activos; ?></span></p>
 					<p class="items_text">Productos con bajo Stock: <span>2</span></p>
 					<p class="items_text">Productos Inactivos: <span>0</span></p>
 				</div>
