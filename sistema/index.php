@@ -2,6 +2,24 @@
  
  session_start();
 
+ include "../conexion.php";
+  
+ $query_usuarios_activos = mysqli_query($conection, "SELECT * FROM `usuario` WHERE estatus = 1");
+
+ $cant_usuarios_activos = mysqli_num_rows($query_usuarios_activos);
+
+ $query_usuarios_inactivos = mysqli_query($conection, "SELECT * FROM `usuario` WHERE estatus = 0");
+
+$cant_usuarios_inactivos = mysqli_num_rows($query_usuarios_inactivos);
+
+$query_cliente_activo = mysqli_query($conection, "SELECT * FROM `cliente` WHERE estatus = 1");
+
+$cant_clientes_activos = mysqli_num_rows($query_cliente_activo);
+
+$query_cliente_inactivos = mysqli_query($conection, "SELECT * FROM `cliente` WHERE estatus = 0");
+
+$cant_clientes_inactivos = mysqli_num_rows($query_cliente_inactivos);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +37,15 @@
 			<div class="dashboard_1">
 				<div class="usuarios items">
 					<h2><a href="lista_usuarios.php">Usuarios</a></h2>
-					<p class="items_text">activos: <span>4</span></p>
-					<p class="items_text">Inactivos: <span>0</span></p>
+
+					<p class="items_text">activos: <span><?php echo $cant_usuarios_activos; ?></span></p>
+					<p class="items_text">Inactivos: <span><?php echo $cant_usuarios_inactivos; ?></span></p>
 				</div>
 
 				<div class="clientes items ">
 					<h2><a href="#">Clientes</a></h2>
-					<p class="items_text">Activos: <span>1</span></p>
-					<p class="items_text">Inactivos: <span>1</span></p>
+					<p class="items_text">Activos: <span><?php echo $cant_clientes_activos; ?></span></p>
+					<p class="items_text">Inactivos: <span><?php echo $cant_clientes_inactivos; ?></span></p>
 				</div>
 				<div class="proveedores items">
 					<h2><a href="#">proveedores</a></h2>
